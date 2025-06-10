@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../NavBar.css">
+    <link rel="stylesheet" href="euler.css"> <!-- Nuevo archivo CSS de Euler -->
+    <title>Método de Euler</title>
+    <!-- MathJax Configuration -->
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/CHTML"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "CHTML": {
+          availableFonts: ["TeX"],
+          linebreaks: { automatic: true },
+          scale: 100
+        }
+      });
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="../index.html">Ec. Diferenciales</a>
+        </div>
+        <div class="navbar-right">
+            <a href="../introduccion.html">Introducción</a>
+            <a href="../Euler/euler.html">Euler</a>
+            <a href="../Heun/heun.html">Heun</a>
+            <a href="../RugenKutta/rugen.html">Runge-Kutta 4th Orden</a>
+            <a href="../Comparaciones/comparaciones.html">Comparaciones</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Método de Euler: Aplicaciones y Ejemplos</h1>
+        <p>Aquí se presentan 3 aplicaciones o ejemplos del mundo real que pueden ser resueltos usando el Método de Euler. Incluya los datos de entrada, formularios para la ecuación, y una indicación para las gráficas generadas con Python.</p>
+
+        <hr>
+
+        <h2>Ejemplo 1: Crecimiento Poblacional (Modelo de Malthus)</h2>
+        <p><strong>Descripción:</strong> Este modelo simple describe el crecimiento de una población donde la tasa de crecimiento es proporcional a la población actual. Se asume un suministro ilimitado de recursos.</p>
+        <p><strong>Ecuación Diferencial:</strong> $ \frac{dP}{dt} = kP $</p>
+        <p><strong>Datos de Entrada:</strong></p>
+        <ul>
+            <li>Población inicial ($P_0$): 100 individuos</li>
+            <li>Tasa de crecimiento ($k$): 0.1 por año</li>
+            <li>Tiempo inicial ($t_0$): 0 años</li>
+            <li>Tiempo final ($t_f$): 10 años</li>
+            <li>Tamaño de paso ($h$): 1 año</li>
+        </ul>
+        <h3>Formulario para la Ecuación:</h3>
+        <form id="populationForm" action="#" method="post">
+            <label for="eq1_p0">Población Inicial (P0):</label><br>
+            <input type="number" id="eq1_p0" name="p0" value="100"><br>
+            <label for="eq1_k">Tasa de Crecimiento (k):</label><br>
+            <input type="number" step="0.01" id="eq1_k" name="k" value="0.1"><br>
+            <label for="eq1_tf">Tiempo Final (tf):</label><br>
+            <input type="number" id="eq1_tf" name="tf" value="10"><br>
+            <label for="eq1_h">Tamaño de Paso (h):</label><br>
+            <input type="number" step="0.1" id="eq1_h" name="h" value="1"><br><br>
+            <input type="submit" value="Calcular con Euler">
+        </form>
+        <h3>Resultados:</h3>
+        <div id="populationResults">
+            <!-- La tabla de resultados se insertará aquí -->
+        </div>
+        <h3>Gráfica (Generada con Python):</h3>
+        <img src="../img/Figure_1.png" alt="Gráfica de Crecimiento Poblacional con Método de Euler">
+        <hr>
+
+        <h2>Ejemplo 2: Desintegración Radiactiva</h2>
+        <p><strong>Descripción:</strong> La desintegración radiactiva es un proceso en el que un núcleo atómico inestable pierde energía emitiendo radiación. La tasa de desintegración es proporcional a la cantidad de sustancia radiactiva presente.</p>
+        <p><strong>Ecuación Diferencial:</strong> $ \frac{dN}{dt} = -\lambda N $</p>
+        <p><strong>Datos de Entrada:</strong></p>
+        <ul>
+            <li>Cantidad inicial de sustancia ($N_0$): 1000 gramos</li>
+            <li>Constante de desintegración ($\lambda$): 0.05 por día</li>
+            <li>Tiempo inicial ($t_0$): 0 días</li>
+            <li>Tiempo final ($t_f$): 20 días</li>
+            <li>Tamaño de paso ($h$): 0.5 días</li>
+        </ul>
+        <h3>Formulario para la Ecuación:</h3>
+        <form id="decayForm" action="#" method="post">
+            <label for="eq2_n0">Cantidad Inicial (N0):</label><br>
+            <input type="number" id="eq2_n0" name="n0" value="1000"><br>
+            <label for="eq2_lambda">Constante de Desintegración (lambda):</label><br>
+            <input type="number" step="0.001" id="eq2_lambda" name="lambda" value="0.05"><br>
+            <label for="eq2_tf">Tiempo Final (tf):</label><br>
+            <input type="number" id="eq2_tf" name="tf" value="20"><br>
+            <label for="eq2_h">Tamaño de Paso (h):</label><br>
+            <input type="number" step="0.1" id="eq2_h" name="h" value="0.5"><br><br>
+            <input type="submit" value="Calcular con Euler">
+        </form>
+        <h3>Resultados:</h3>
+        <div id="decayResults">
+            <!-- La tabla de resultados se insertará aquí -->
+        </div>
+        <h3>Gráfica (Generada con Python):</h3>
+        <img src="../img/Figure_4.png" alt="Gráfica de Desintegración Radiactiva con Método de Euler">
+        <hr>
+
+        <h2>Ejemplo 3: Enfriamiento de Newton</h2>
+        <p><strong>Descripción:</strong> La ley de enfriamiento de Newton establece que la tasa de pérdida de calor de un cuerpo es proporcional a la diferencia de temperatura entre el cuerpo y su entorno.</p>
+        <p><strong>Ecuación Diferencial:</strong> $ \frac{dT}{dt} = -k(T - T_a) $</p>
+        <p><strong>Datos de Entrada:</strong></p>
+        <ul>
+            <li>Temperatura inicial del objeto ($T_0$): 100 °C</li>
+            <li>Temperatura ambiente ($T_a$): 20 °C</li>
+            <li>Constante de enfriamiento ($k$): 0.07 por minuto</li>
+            <li>Tiempo inicial ($t_0$): 0 minutos</li>
+            <li>Tiempo final ($t_f$): 60 minutos</li>
+            <li>Tamaño de paso ($h$): 2 minutos</li>
+        </ul>
+        <h3>Formulario para la Ecuación:</h3>
+        <form id="coolingForm" action="#" method="post">
+            <label for="eq3_t0">Temperatura Inicial (T0):</label><br>
+            <input type="number" id="eq3_t0" name="t0" value="100"><br>
+            <label for="eq3_ta">Temperatura Ambiente (Ta):</label><br>
+            <input type="number" id="eq3_ta" name="ta" value="20"><br>
+            <label for="eq3_k">Constante de Enfriamiento (k):</label><br>
+            <input type="number" step="0.001" id="eq3_k" name="k" value="0.07"><br>
+            <label for="eq3_tf">Tiempo Final (tf):</label><br>
+            <input type="number" id="eq3_tf" name="tf" value="60"><br>
+            <label for="eq3_h">Tamaño de Paso (h):</label><br>
+            <input type="number" step="0.1" id="eq3_h" name="h" value="2"><br><br>
+            <input type="submit" value="Calcular con Euler">
+        </form>
+        <h3>Resultados:</h3>
+        <div id="coolingResults">
+            <!-- La tabla de resultados se insertará aquí -->
+        </div>
+        <h3>Gráfica (Generada con Python):</h3>
+        <img src="../img/Figure_7.png" alt="Gráfica de Enfriamiento de Newton con Método de Euler">
+    </div>
+
+    <script src="ejer1.js"></script>
+</body>
+</html>

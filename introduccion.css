@@ -1,0 +1,73 @@
+/* introduccion.css */
+
+/* Fondo de la página */
+body {
+    background-color: #AACFE2; /* Azul muy claro para el fondo principal */
+    font-family: 'Inter', sans-serif; /* Usar Inter como fuente predeterminada */
+    color: #012D4A; /* Color de texto oscuro para el cuerpo */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Estilo para el área de contenido para darle un fondo diferente */
+.content {
+    background-color: #FFFFFF; /* Fondo blanco para el contenido */
+    padding: 20px 40px;
+    margin: 20px auto; /* Centrar el contenido y darle un margen */
+    max-width: 900px; /* Ancho máximo para legibilidad */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilos para los títulos */
+h1 {
+    color: #012D4A; /* Azul muy oscuro para el título principal */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #014753; /* Línea de separación debajo del título */
+    border-radius: 4px;
+}
+
+h2 {
+    color: #014753; /* Azul oscuro para los subtítulos de sección */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #016392; /* Línea discontinua debajo del subtítulo */
+}
+
+h3 {
+    color: #016392; /* Azul medio para los subtítulos de métodos */
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+/* Estilo para el texto de los párrafos */
+p {
+    color: #014753; /* Azul oscuro para el texto de los párrafos */
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+/* Estilo para las listas (datos de entrada) */
+ul {
+    list-style-type: disc; /* Puntos de lista */
+    margin-left: 20px;
+    color: #01839D; /* Azul más claro para los elementos de la lista */
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+/* Estilo para la línea horizontal */
+hr {
+    border: none;
+    border-top: 1px solid #AACFE2; /* Un azul claro para la línea */
+    margin: 40px 0;
+}

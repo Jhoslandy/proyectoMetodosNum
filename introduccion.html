@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="NavBar.css">
+    <link rel="stylesheet" href="introduccion.css">
+    <title>Introducción a Ecuaciones Diferenciales</title>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/CHTML"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "CHTML": {
+          availableFonts: ["TeX"],
+          linebreaks: { automatic: true },
+          scale: 100
+        }
+      });
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="index.html">Ec. Diferenciales</a>
+        </div>
+        <div class="navbar-right">
+            <a href="introduccion.html">Introducción</a>
+            <a href="Euler/euler.html">Euler</a>
+            <a href="Heun/heun.html">Heun</a>
+            <a href="RugenKutta/rugen.html">Runge-Kutta 4th Orden</a>
+            <a href="Comparaciones/comparaciones.html">Comparaciones</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>¿Qué son las Ecuaciones Diferenciales?</h1>
+        <p>Las ecuaciones diferenciales son ecuaciones matemáticas que relacionan una función con sus derivadas. Son fundamentales en la ciencia y la ingeniería porque describen cómo cambian las cantidades en relación con otras cantidades. Se utilizan para modelar una amplia variedad de fenómenos, desde el crecimiento de poblaciones y la desintegración radiactiva hasta el movimiento de planetas y el flujo de calor. En esencia, nos permiten entender sistemas dinámicos donde las tasas de cambio son importantes.</p>
+
+        <h2>Métodos Numéricos para Resolver Ecuaciones Diferenciales</h2>
+        <p>Dado que muchas ecuaciones diferenciales no tienen soluciones analíticas simples, se recurre a métodos numéricos para aproximar sus soluciones. A continuación, se describen tres métodos comunes:</p>
+
+        <h3>Método de Euler</h3>
+        <p>El método de Euler es el método numérico más básico para resolver ecuaciones diferenciales ordinarias (EDO) de primer orden. Es un método explícito que utiliza la pendiente de la función en el punto inicial para estimar el valor de la función en el siguiente punto. Aunque es sencillo de implementar, su precisión es limitada y tiende a acumular errores significativos a medida que el tamaño del paso aumenta o la longitud del intervalo de cálculo es grande.</p>
+        <p>La fórmula general para el método de Euler es:</p>
+        $$y_{i+1} = y_i + h \cdot f(x_i, y_i)$$
+        <p>donde $y_{i+1}$ es el valor aproximado de la función en el siguiente paso, $y_i$ es el valor actual, $h$ es el tamaño del paso, y $f(x_i, y_i)$ es la derivada de la función evaluada en el punto actual.</p>
+
+        <h3>Método de Heun (Euler Mejorado)</h3>
+        <p>El método de Heun, también conocido como el método de Euler mejorado o el método del predictor-corrector, es una mejora del método de Euler. Busca reducir el error al tomar un promedio de la pendiente al principio y al final del intervalo de paso. Primero, predice un valor futuro utilizando el método de Euler, y luego corrige ese valor utilizando el promedio de las pendientes. Esto lo hace más preciso que el método de Euler.</p>
+        <p>Las fórmulas para el método de Heun son:</p>
+        <p>Paso Predictor:</p>
+        $$y_{i+1}^* = y_i + h \cdot f(x_i, y_i)$$
+        <p>Paso Corrector:</p>
+        $$y_{i+1} = y_i + \frac{h}{2} \cdot [f(x_i, y_i) + f(x_{i+1}, y_{i+1}^*)]$$
+
+        <h3>Método de Runge-Kutta de Cuarto Orden (RK4)</h3>
+        <p>El método de Runge-Kutta de cuarto orden es uno de los métodos numéricos más populares y ampliamente utilizados para resolver ecuaciones diferenciales ordinarias. Es un método de un solo paso que logra una alta precisión al evaluar la pendiente en varios puntos dentro del intervalo de paso y luego tomar un promedio ponderado de estas pendientes. Es conocido por su equilibrio entre precisión y estabilidad, lo que lo hace adecuado para una amplia gama de problemas.</p>
+        <p>Las fórmulas para el método de Runge-Kutta de cuarto orden son:</p>
+        $$k_1 = h \cdot f(x_i, y_i)$$
+        $$k_2 = h \cdot f(x_i + \frac{h}{2}, y_i + \frac{k_1}{2})$$
+        $$k_3 = h \cdot f(x_i + \frac{h}{2}, y_i + \frac{k_2}{2})$$
+        $$k_4 = h \cdot f(x_i + h, y_i + k_3)$$
+        $$y_{i+1} = y_i + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)$$
+    </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+/* comparaciones.css */
+
+/* Fondo de la página */
+body {
+    background-color: #AACFE2; /* Azul muy claro para el fondo principal */
+    font-family: 'Inter', sans-serif; /* Usar Inter como fuente predeterminada */
+    color: #012D4A; /* Color de texto oscuro para el cuerpo */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Estilo para el área de contenido para darle un fondo diferente */
+.content {
+    background-color: #FFFFFF; /* Fondo blanco para el contenido */
+    padding: 20px 40px;
+    margin: 20px auto; /* Centrar el contenido y darle un margen */
+    max-width: 900px; /* Ancho máximo para legibilidad */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilos para los títulos */
+h1 {
+    color: #012D4A; /* Azul muy oscuro para el título principal */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #014753; /* Línea de separación debajo del título */
+    border-radius: 4px;
+}
+
+h2 {
+    color: #014753; /* Azul oscuro para los subtítulos de sección */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #016392; /* Línea discontinua debajo del subtítulo */
+}
+
+h3 {
+    color: #016392; /* Azul medio para los subtítulos de métodos */
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+/* Estilo para el texto de los párrafos */
+p {
+    color: #014753; /* Azul oscuro para el texto de los párrafos */
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+/* Estilo para las listas (datos de entrada) */
+ul {
+    list-style-type: disc; /* Puntos de lista */
+    margin-left: 20px;
+    color: #01839D; /* Azul más claro para los elementos de la lista */
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+/* Estilo para la línea horizontal */
+hr {
+    border: none;
+    border-top: 1px solid #AACFE2; /* Un azul claro para la línea */
+    margin: 40px 0;
+}
+
+/* Contenedor para imágenes de gráficos (para orden horizontal) */
+.graph-container {
+    display: flex; /* Habilita Flexbox */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea si no hay espacio */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 20px; /* Espacio entre las imágenes */
+    margin: 30px 0; /* Margen superior e inferior para el contenedor */
+}
+
+/* Estilos para las imágenes dentro del contenedor */
+.graph-container img {
+    max-width: calc(33% - 20px); /* Aproximadamente 3 imágenes por fila con espacio */
+    height: auto; /* Mantiene la relación de aspecto */
+    border-radius: 8px; /* Bordes redondeados para las imágenes */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada para las imágenes */
+    flex-grow: 1; /* Permite que las imágenes crezcan para ocupar el espacio disponible */
+    object-fit: contain; /* Asegura que la imagen se ajuste dentro de su caja sin recortarse */
+}
+
+/* Estilos para imágenes individuales que no están en un contenedor flex (para los otros ejercicios) */
+.content > img { /* Selecciona img directamente dentro de .content */
+    display: block; /* Hace que la imagen sea un bloque para poder centrarla */
+    max-width: 80%; /* Ancho máximo para imágenes individuales */
+    height: auto;
+    margin: 30px auto; /* Centra horizontalmente y añade margen vertical */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Estilos de la tabla de resultados */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 30px; /* Margen inferior para separar de lo siguiente */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra para la tabla */
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que los bordes redondeados se apliquen al contenido de la tabla */
+}
+.comparison-table th, .comparison-table td {
+    border: 1px solid #AACFE2; /* Borde con un color de la paleta */
+    padding: 12px 15px; /* Más padding para celdas */
+    text-align: left;
+}
+.comparison-table th {
+    background-color: #016392; /* Fondo de encabezado de tabla */
+    color: #FFFFFF; /* Texto blanco en el encabezado */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+.comparison-table tr:nth-child(even) {
+    background-color: #F9F9F9; /* Rayas para facilitar la lectura */
+}
+.comparison-table tr:hover {
+    background-color: #EBF7FB; /* Resaltado al pasar el ratón */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .content {
+        padding: 15px 20px;
+        margin: 10px auto;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .graph-container img {
+        max-width: 100%; /* Una imagen por fila en móviles */
+    }
+}

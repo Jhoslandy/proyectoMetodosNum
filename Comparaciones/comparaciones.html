@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../NavBar.css">
+    <link rel="stylesheet" href="comparaciones.css"> <!-- Nuevo archivo CSS -->
+    <title>Comparación de Métodos</title>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/CHTML"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "CHTML": {
+          availableFonts: ["TeX"],
+          linebreaks: { automatic: true },
+          scale: 100
+        }
+      });
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="../index.html">Ec. Diferenciales</a>
+        </div>
+        <div class="navbar-right">
+            <a href="../introduccion.html">Introducción</a>
+            <a href="../Euler/euler.html">Euler</a>
+            <a href="../Heun/heun.html">Heun</a>
+            <a href="../RugenKutta/rugen.html">Runge-Kutta 4th Orden</a>
+            <a href="../Comparaciones/comparaciones.html">Comparaciones</a>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Comparación de Métodos Numéricos</h1>
+        <p>En esta sección, compararemos los resultados de los tres ejemplos del mundo real utilizando los métodos de Euler, Heun y Runge-Kutta de 4to Orden. Esto nos permitirá observar la precisión y el comportamiento de cada método bajo las mismas condiciones. Para los ejemplos, se han utilizado los mismos parámetros de entrada definidos en sus respectivas páginas y se han calculado los valores finales y sus errores absolutos en comparación con la solución exacta (cuando es posible).</p>
+
+        <hr>
+
+        <h2>Comparación: Crecimiento Poblacional (Modelo de Malthus)</h2>
+        <p><strong>Ecuación:</strong> $ \frac{dP}{dt} = kP $</p>
+        <p><strong>Datos de Entrada:</strong> $P_0 = 100$, $k = 0.1$, $t_f = 10$ años, $h = 1$ año.</p>
+        <p><strong>Solución Exacta en $t_f=10$:</strong> $P(10) \approx 271.8282$</p>
+        
+        <h3>Resultados Aproximados:</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Método</th>
+                    <th>Valor Final Estimado ($P(t_f)$)</th>
+                    <th>Error Absoluto al Final ($|P_{Exacta} - P_{Estimada}|$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Euler</td>
+                    <td>259.3742</td>
+                    <td>12.4540</td>
+                </tr>
+                <tr>
+                    <td>Heun</td>
+                    <td>270.7041</td>
+                    <td>1.1241</td>
+                </tr>
+                <tr>
+                    <td>Runge-Kutta 4to Orden</td>
+                    <td>271.8279</td>
+                    <td>0.0003</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Gráfica Comparativa (Generada con Python):</h3>
+        <div class="graph-container">
+            <img src="../img/Figure_1.png" alt="Gráfica comparativa del Crecimiento Poblacional con Método de Euler">
+            <img src="../img/Figure_2.png" alt="Gráfica comparativa del Crecimiento Poblacional con Método de Heun">
+            <img src="../img/Figure_3.png" alt="Gráfica comparativa del Crecimiento Poblacional con Método de Runge-Kutta 4to Orden">
+        </div>
+        <h3>Conclusiones:</h3>
+        <p>Para este problema de crecimiento poblacional, se observa claramente que el método de Euler muestra la menor precisión, con un error considerable. El método de Heun ofrece una mejora significativa en la precisión. El método de Runge-Kutta de 4to Orden proporciona la aproximación más cercana a la solución real, con un error casi despreciable, debido a su mayor orden de precisión.</p>
+        <hr>
+
+        <h2>Comparación: Desintegración Radiactiva</h2>
+        <p><strong>Ecuación:</strong> $ \frac{dN}{dt} = -\lambda N $</p>
+        <p><strong>Datos de Entrada:</strong> $N_0 = 1000$, $\lambda = 0.05$, $t_f = 20$ días, $h = 0.5$ días.</p>
+        <p><strong>Solución Exacta en $t_f=20$:</strong> $N(20) \approx 367.8794$</p>
+        
+        <h3>Resultados Aproximados:</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Método</th>
+                    <th>Valor Final Estimado ($N(t_f)$)</th>
+                    <th>Error Absoluto al Final ($|N_{Exacta} - N_{Estimada}|$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Euler</td>
+                    <td>358.4859</td>
+                    <td>9.3935</td>
+                </tr>
+                <tr>
+                    <td>Heun</td>
+                    <td>367.1479</td>
+                    <td>0.7315</td>
+                </tr>
+                <tr>
+                    <td>Runge-Kutta 4to Orden</td>
+                    <td>367.8794</td>
+                    <td>0.0000</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Gráfica Comparativa (Generada con Python):</h3>
+        <img src="../img/grafica20.png" alt="Gráfica comparativa de la Desintegración Radiactiva">
+        <h3>Conclusiones:</h3>
+        <p>Similar al crecimiento poblacional, en la desintegración radiactiva, el método de Euler subestima la curva real de manera más pronunciada. Heun mejora considerablemente esta aproximación, y RK4 proporciona una aproximación extremadamente precisa, capturando la forma exponencial de la desintegración con un error casi nulo. La elección del método dependerá de la precisión requerida y los recursos computacionales disponibles.</p>
+        <hr>
+
+        <h2>Comparación: Enfriamiento de Newton</h2>
+        <p><strong>Ecuación:</strong> $ \frac{dT}{dt} = -k(T - T_a) $</p>
+        <p><strong>Datos de Entrada:</strong> $T_0 = 100$, $T_a = 20$, $k = 0.07$, $t_f = 60$ minutos, $h = 2$ minutos.</p>
+        <p><strong>Solución Exacta en $t_f=60$:</strong> $T(60) \approx 21.1996$</p>
+        
+        <h3>Resultados Aproximados:</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Método</th>
+                    <th>Valor Final Estimado ($T(t_f)$)</th>
+                    <th>Error Absoluto al Final ($|T_{Exacta} - T_{Estimada}|$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Euler</td>
+                    <td>21.6575</td>
+                    <td>0.4579</td>
+                </tr>
+                <tr>
+                    <td>Heun</td>
+                    <td>21.2185</td>
+                    <td>0.0189</td>
+                </tr>
+                <tr>
+                    <td>Runge-Kutta 4to Orden</td>
+                    <td>21.1996</td>
+                    <td>0.0000</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Gráfica Comparativa (Generada con Python):</h3>
+        <img src="../img/grafica30.png" alt="Gráfica comparativa del Enfriamiento de Newton">
+        <h3>Conclusiones:</h3>
+        <p>En el problema del enfriamiento, donde la temperatura se acerca asintóticamente a la temperatura ambiente, la precisión de los métodos se hace evidente. Euler muestra un error acumulado notable, resultando en una desviación más rápida o más lenta de la curva real. Heun y RK4, con su mayor precisión, siguen la trayectoria de enfriamiento con mucha mayor fidelidad, siendo RK4 el más preciso en general con un error prácticamente nulo.</p>
+        <p><strong>Conclusión General:</strong> A medida que aumenta el orden de los métodos numéricos (de Euler a Heun a Runge-Kutta 4to Orden), la precisión de la aproximación de la solución de una ecuación diferencial generalmente mejora de forma significativa. Esto se debe a que los métodos de orden superior consideran más información sobre la pendiente de la función dentro de cada paso, lo que reduce el error de truncamiento. Sin embargo, esta mejora en la precisión a menudo viene con un mayor costo computacional, aunque para estas ecuaciones sencillas la diferencia en el tiempo de cálculo es mínima. Para la mayoría de las aplicaciones prácticas que requieren alta precisión, el método de Runge-Kutta de 4to Orden es la opción preferida.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/* Navbar styles */
+.navbar {
+    background-color: #000080; /* Dark blue */
+    overflow: hidden;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: #0000A0; /* Slightly lighter blue on hover */
+}
+
+.navbar-left {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.navbar-right a {
+    margin-left: 15px;
+}
